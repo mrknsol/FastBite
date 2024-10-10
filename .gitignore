@@ -12,10 +12,10 @@ obj/
 .vscode/
 
 # Secrets
-FastBite/bin/Debug/net8.0/appsettings.json
+FastBite-1/bin/Debug/net8.0/appsettings.json
 appsettings.json
 appsettings.*.json
-
+FastBite-1/appsettings.json
 # NuGet Packages
 *.nupkg
 packages/
