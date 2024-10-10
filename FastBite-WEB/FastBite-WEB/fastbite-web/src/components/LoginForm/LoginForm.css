@@ -1,0 +1,109 @@
+.wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid #face8d;
+    background-color: rgb(32, 32, 32);
+  }
+  
+  form h1 {
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 2.8em;
+    color: #face8d;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-box {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  
+  .input-box input {
+    width: 100%;
+    padding: 12px 0px 12px 15px;
+    background-color: #222;
+    border: 1px solid #555;
+    border-radius: 10px;
+    font-family: 'Ubuntu Mono', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .input-box input:focus {
+    border-color: #face8d;
+    outline: none;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #face8d;
+    font-size: 18px;
+  }
+  
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Ubuntu Mono', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .remember-forgot a {
+    color: #face8d;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .remember-forgot a:hover {
+    color: #e4b57f;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #face8d;
+    color: black;
+    font-family: 'Ubuntu Mono', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #e4b57f;
+  }
+  
+  .register-link p {
+    color: #fff;
+    font-family: 'Ubuntu Mono', sans-serif;
+    text-align: center;
+  }
+  
+  .register-link a {
+    color: #face8d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .register-link a:hover {
+    color: #e4b57f;
+  }
+  
+
+
+  * {
+    box-sizing: border-box;
+  }

@@ -1,0 +1,5 @@
+export * from './HomePage/HomePage.jsx'
+export * from './MenuPage/MenuPage.jsx'
+export * from './ProfilePage/ProfilePage.jsx'
+export * from './ReservePage/ReservePage.jsx'
+export * from './OrderPage/OrderPage.jsx'
