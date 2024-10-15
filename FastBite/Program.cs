@@ -94,6 +94,7 @@ builder.Services.AddScoped<LoginUserValidator>();
 builder.Services.AddScoped<RegisterUserValidator>();
 
 builder.Services.AddTransient<ITokenService, TokenService>();
+builder.Services.AddTransient<ICheckoutService, CheckoutService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();

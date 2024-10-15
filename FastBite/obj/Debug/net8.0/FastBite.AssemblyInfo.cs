@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastBite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e90ccf209d079df42a108752e4e40a3780509814")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+787d69c2e30a0f5c9e30ae7b24581e4f0b593cc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastBite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastBite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

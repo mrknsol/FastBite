@@ -39,8 +39,6 @@ namespace FastBite.Controllers
                 return BadRequest($"{ex.Message}\n{ex.AuthErrorType}");
             }
         }
-
-
         [Authorize]
         [HttpPost("ConfirmEmail")]
         public async Task<IActionResult> ConfirmEmailAsync()

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mrknsol/Documents/FastBite-1/FastBite/FastBite.csproj": {}
+    "/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/FastBite.csproj": {}
   },
   "projects": {
-    "/Users/mrknsol/Documents/FastBite-1/FastBite/FastBite.csproj": {
+    "/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/FastBite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mrknsol/Documents/FastBite-1/FastBite/FastBite.csproj",
+        "projectUniqueName": "/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/FastBite.csproj",
         "projectName": "FastBite",
-        "projectPath": "/Users/mrknsol/Documents/FastBite-1/FastBite/FastBite.csproj",
+        "projectPath": "/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/FastBite.csproj",
         "packagesPath": "/Users/mrknsol/.nuget/packages/",
-        "outputPath": "/Users/mrknsol/Documents/FastBite-1/FastBite/obj/",
+        "outputPath": "/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mrknsol/.nuget/NuGet/NuGet.Config"
@@ -102,6 +102,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

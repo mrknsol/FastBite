@@ -16,6 +16,7 @@ public class ProductController : ControllerBase
         _productService = productService;
     }
 
+    [Authorize(Roles = "AppAdmin")]
     [HttpPost("Create")]
     public async Task<IActionResult> CreateProduct([FromForm] ProductDTO productDto, CancellationToken cancellationToken)
     {
@@ -29,6 +30,8 @@ public class ProductController : ControllerBase
             return StatusCode(500, $"InternalServerError: {ex.Message}");
         }
     }
+
+    [Authorize(Roles = "AppAdmin")]
     [HttpPost("Image/Add")]
     public async Task<IActionResult> UploadImageAsync(IFormFile file, CancellationToken cancellationToken)
     {
@@ -51,6 +54,7 @@ public class ProductController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "AppAdmin")]
     [HttpDelete("Delete")]
     public async Task<IActionResult> DeleteProduct(Guid productId) 
     {

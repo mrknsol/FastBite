@@ -32,7 +32,7 @@ namespace FastBite.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize]
         [HttpGet("GetById")]
         public async Task<IActionResult> GetOrderById(Guid orderId)
         {
@@ -52,7 +52,7 @@ namespace FastBite.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        [Authorize]
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllOrders(string phoneNumber)
         {
@@ -67,6 +67,7 @@ namespace FastBite.Controllers
             }
         }
 
+        [Authorize(Roles = "AppAdmin")]
         [HttpPut("Edit")]
         public async Task<IActionResult> UpdateOrder(Guid orderId, [FromBody] CreateOrderDTO orderDTO)
         {
@@ -86,7 +87,8 @@ namespace FastBite.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        
+        [Authorize(Roles = "AppAdmin")]
         [HttpDelete("Delete")]
         public async Task<IActionResult> DeleteOrder(Guid orderId)
         {

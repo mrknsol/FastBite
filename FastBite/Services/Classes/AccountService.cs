@@ -13,9 +13,9 @@ namespace FastBite.Services.Classes;
 
 public class AccountService : IAccountService
 {
-    private readonly IEmailSender emailSender; // Для отправки сообщения на почту. 
-    private readonly ITokenService tokenService; // Для генерирования  одноразового токена пользователя. 
-    private readonly FastBiteContext context; // Мой БД 
+    private readonly IEmailSender emailSender;
+    private readonly ITokenService tokenService;
+    private readonly FastBiteContext context; 
 
     public AccountService(IEmailSender emailSender, ITokenService tokenService, FastBiteContext context)
     {
@@ -27,24 +27,23 @@ public class AccountService : IAccountService
 
     public async Task ConfirmEmailAsync(string token)
     {
-        var principal = tokenService.GetPrincipalFromToken(token, validateLifetime: true); // Забираю все информацию из токена 
+        var principal = tokenService.GetPrincipalFromToken(token, validateLifetime: true); 
 
-        var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value; // Нахожу username 
+        var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
-        var user = context.Users.FirstOrDefault(u => u.Email == email); // Беру пользователя из БД
+        var user = context.Users.FirstOrDefault(u => u.Email == email);
 
         if (user == null)
         {
             throw new MyAuthException(AuthErrorTypes.UserNotFound, "User not found");
         }
 
-        // Создал токен для подтверждегия почты 
         var confirmationToken = await tokenService.GenerateEmailTokenAsync(user.Id.ToString());
 
-        var link = $"http://localhost:5021/api/v1/Account/ValidateConfirmation?token={confirmationToken}";
+        var link = $"http://localhost:5156/api/v1/Account/ValidateConfirmation?token={confirmationToken}";
 
         
-        StringBuilder sb = new( File.ReadAllText("/Users/mrknsol/Documents/FastBite/FastBite/assets/email.html"));
+        StringBuilder sb = new( File.ReadAllText("/Users/mrknsol/Documents/FastBite0/FastBite-FastBite/FastBite/assets/email.html"));
         
         sb.Replace("[Confirmation Link]", link);
         sb.Replace("[Year]", DateTime.Now.Year.ToString());

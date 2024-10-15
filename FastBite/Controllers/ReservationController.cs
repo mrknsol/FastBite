@@ -2,6 +2,7 @@ using System.Security.Claims;
 using FastBite.Data.Contexts;
 using FastBite.Data.DTOS;
 using FastBite.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
@@ -18,6 +19,7 @@ public class ReservationController : ControllerBase {
         _context = context;
         _reservationService = reservationService;
     }
+
 
     [HttpGet("Get")]
     public async Task<IActionResult> GetAllReservations(string phoneNumber) {
@@ -39,6 +41,7 @@ public class ReservationController : ControllerBase {
         return Ok(newReservation);
     }
 
+    [Authorize(Roles = "AddAdmin")]
     [HttpDelete("Delete")]
     public async Task<IActionResult> DeleteReservation(Guid Id) {
         
@@ -47,6 +50,7 @@ public class ReservationController : ControllerBase {
         return Ok(res);
     }
 
+    [Authorize(Roles = "AppAdmin")]
     [HttpPut("Edit")]
     public async Task<IActionResult> EditReservation(Guid Id, [FromBody] ReservationDTO reservation) {
         

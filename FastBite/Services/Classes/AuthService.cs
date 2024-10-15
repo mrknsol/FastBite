@@ -42,6 +42,8 @@ public class AuthService : IAuthService
             }
 
             var tokenData = new AccessInfoDTO(
+                foundUser.Name,
+                foundUser.Email,
                 await tokenService.GenerateTokenAsync(foundUser),
                 await tokenService.GenerateRefreshTokenAsync(),
                 DateTime.Now.AddDays(1)
@@ -89,6 +91,7 @@ public class AuthService : IAuthService
         var principal = tokenService.GetPrincipalFromToken(accessToken);
 
         var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        var name = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
         var user = context.Users.FirstOrDefault(u => u.Email == email);
 
@@ -104,6 +107,8 @@ public class AuthService : IAuthService
         await context.SaveChangesAsync();
 
         return new AccessInfoDTO(
+            name,
+            email,
             newAccessToken,
             newRefreshToken,
             user.RefreshTokenExpiryTime);

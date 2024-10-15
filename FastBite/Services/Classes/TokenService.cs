@@ -51,15 +51,23 @@ public class TokenService : ITokenService
 
     public async Task<string> GenerateTokenAsync(User user)
     {
-        var role = await context.UserRoles
-            .Include(r => r.AppRole)
-            .FirstOrDefaultAsync(u => u.UserId == user.Id);
+        var roles = await context.UserRoles
+        .Include(r => r.AppRole)
+        .Where(u => u.UserId == user.Id)
+        .Select(r => r.AppRole.Name)
+        .ToListAsync();
 
         var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email,user.Email),
-                new Claim(ClaimTypes.Role, role.AppRole.Name),
-            };
+        {
+            new Claim(ClaimTypes.Name, user.Name),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), 
+            new Claim(ClaimTypes.Email, user.Email)
+        };
+
+        foreach (var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role));
+        }
 
 
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetSection("Jwt:Key").Value));
@@ -120,9 +128,9 @@ public class TokenService : ITokenService
         {
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
             
-            var Id = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
-            var user = await context.Users.FirstOrDefaultAsync(u => u.Id.ToString() == Id);
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
             {
