@@ -1,0 +1,52 @@
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    position: relative;
+  }
+
+  .HomePage__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../../assets/elseImages/homepage-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2.5px); 
+    z-index: 0; 
+  }
+  
+  .HomePage__desc {
+    font-family: "Dancing Script", sans-serif;
+    color: #face8d;
+    font-size: 50px;
+    z-index: 1; 
+    position: relative; 
+  }
+  
+  .HomePage__logo {
+    color: white;
+    font-family: "Ubuntu Mono", sans-serif;
+    font-size: 108px;
+    letter-spacing: 7px;
+    font-weight: 600;
+    z-index: 1; 
+    position: relative; 
+  }
+
+
+  @media (max-width: 768px) {
+    .HomePage__desc {
+      font-size: 30px;
+    }
+  
+    .HomePage__logo {
+      font-size: 70px;
+    }
+  }
+  
